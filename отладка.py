@@ -1,12 +1,16 @@
-# отладочный файл
+# # отладочный файл
 
 import sopromat as sp
 
-frame = sp.frame(((0,0), (0, 100), (200,100), (200,0)))
-#frame.draw_raw()
-frame.add_a_force(0, 100, 10, [1,0], 'force')
-frame.add_a_force(100, 100, 20, 'clockwise', name='moment')
-frame.add_a_force(200, 100, 10, [1,1], name='force')
+frame = sp.frame([[0, 0], [2, 0]])
+frame.add_a_holder(0, 0, type='hinge')
+frame.add_a_holder(2, 0, 'joint')
 
-frame.basic_draw()
+frame.add_a_force(1, 0, 10, vec = [0,1], name='force', type='lin', len=1)
+
+
+
+
+frame.basic_draw(size='1500x500')
+
 
